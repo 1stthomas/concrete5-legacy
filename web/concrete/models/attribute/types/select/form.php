@@ -211,9 +211,10 @@ if (isset($akSelectAllowMultipleValues) && $akSelectAllowMultipleValues &&
         var ccmAttributeTypeSelectHelper = {
             add: function (akID, field) {
                 var newRow = document.createElement('div');
+		var title = <?= json_encode($removeOptionText); ?>;
                 newRow.className = 'newAttrValueRow';
                 newRow.innerHTML = '<input name="' + field + '" type="text" value="" /> ';
-                newRow.innerHTML += '<a title="<?php echo $removeOptionText?>" class="btn btn-mini btn-danger" onclick="ccmAttributeTypeSelectHelper.remove(this)" href="javascript:void(0)"><i class="icon icon-white icon-trash"></i></a>';
+                newRow.innerHTML += "<a title=" + title + " class=\"btn btn-mini btn-danger\" onclick=\"ccmAttributeTypeSelectHelper.remove(this)\" href=\"javascript:void(0)\"><i class=\"icon icon-white icon-trash\"></i></a>";
                 $('#newAttrValueRows' + akID).append(newRow);
             },
             remove: function (a) {
